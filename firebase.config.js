@@ -7,8 +7,6 @@ const firebase = require('firebase');
     storageBucket: "roadtrip-app-1474472241721.appspot.com",
     messagingSenderId: "334683545778"
   };
-
   firebase.initializeApp(config);
 
-
-module.exports = firebase
+modules.export = firebase;
