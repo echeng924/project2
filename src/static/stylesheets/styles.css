@@ -4,4 +4,10 @@ body {
 
 #main-nav {
   background-color: yellow;
+  margin:0;
+  margin-top: 0;
+}
+
+ul {
+  display: inline-block;
 }
