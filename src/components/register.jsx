@@ -1,15 +1,16 @@
-//This file will handle login AND register component for users to create and login to their accounts
+//This file will allow users to register.
+
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import firebase from '../../firebase.config.js';
 
-class Login extends Component {
+class Register extends Component {
   constructor() {
     super();
     this.state = {
       username: '',
       password: '',
-    }
+    };
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -22,33 +23,37 @@ class Login extends Component {
   handleSubmit() {
     const { username, password } = this.state;
     firebase.auth()
-            .signInWithEmailAndPassword(username, password)
+            .createUserWithEmailAndPassword(username, password)
             .catch((err) => {
-              const errorCode = err.code;
-              const errorMessage = err.message;
-              console.log(err)
+              console.log(err);
+            })
+            .then((user) => {
+              firebase.database().ref('users')
+                      .child(user.uid)
+                      .set({full_name:'', email: username})
             })
             .then(() => {
               this.props.router.push('/createTrip');
             })
   }
-
   render() {
     return (
       <div>
-        <h1>Login component</h1>
-        <div id="login-form">
-          <div id="username-input">
+        <h1>Register for an account</h1>
+        <div id="register-form">
+          <div>
             <input name="username" onChange={this.handleEdit} type="text" placeholder="username" />
           </div>
-          <div id="password-input">
+          <div>
             <input name="password" onChange={this.handleEdit} type="password" placeholder="password" />
           </div>
-          <button id="loginBtn" onClick={this.handleSubmit}>Login</button>
+          <button className="registerBtn" onClick={this.handleSubmit}>Register</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(Login);
+export default withRouter(Register);
+
+

@@ -17,6 +17,7 @@ class Main extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/yourTrips">Your Trips</Link></li>
             <li><Link to="/createTrip">Create a new trip</Link></li>
+            <li><Link to="/login">Login /</Link><Link to="/register">Register</Link></li>
           </ul>
         </div>
         <div id="main-content">
