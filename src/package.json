@@ -1,0 +1,45 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Roadtrip App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --hot --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echeng924/project2.git"
+  },
+  "keywords": [
+    "GA",
+    "project",
+    "2"
+  ],
+  "author": "Liz Cheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/echeng924/project2/issues"
+  },
+  "homepage": "https://github.com/echeng924/project2#readme",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "firebase": "^3.4.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
+    "superagent": "^2.3.0",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0"
+  }
+}
