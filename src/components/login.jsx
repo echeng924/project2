@@ -10,8 +10,29 @@ class Login extends Component {
       username: '',
       password: '',
     }
-
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+  handleEdit(e) {
+    const stateObj = {};
+    const stateKey = e.target.name;
+    stateObj[stateKey] = e.target.value;
+    this.setState(stateObj);
+  }
+  handleSubmit() {
+    const { username, password } = this.state;
+    firebase.auth()
+            .signInWithEmailAndPassword(username, password)
+            .catch((err) => {
+              const errorCode = err.code;
+              const errorMessage = err.message;
+              console.log(err)
+            })
+            .then(() => {
+              this.props.router.push('/dashboard');
+            })
+  }
+
   render() {
     return (
       <div>
@@ -28,5 +49,6 @@ class Login extends Component {
       </div>
     )
   }
-
 }
+
+export default withRouter(Login);
