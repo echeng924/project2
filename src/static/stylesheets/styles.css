@@ -11,3 +11,11 @@ body {
 ul {
   display: inline-block;
 }
+
+#main-loggedin {
+  margin:0;
+}
+
+#home-link {
+  margin:0;
+}

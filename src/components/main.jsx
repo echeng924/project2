@@ -35,14 +35,22 @@ class Main extends Component {
     if(!this.state.loggedIn) {
       return (
         <div>
-          <Link to="/login" id="login">Login /</Link>
-          <Link to="/register" id="register">Register</Link>
+          <ul>
+            <li><Link to="/login" id="yourTrips">Your Trips</Link></li>
+            <li><Link to="/login" id="createTrip">Create a new trip</Link></li>
+            <li><Link to="/login" id="login">Login /</Link>
+            <Link to="/register" id="register">Register</Link></li>
+          </ul>
         </div>
       );
     } else {
       return (
         <div id="sign-out">
-          <Link to="/" onClick={this.signOut}>Sign Out</Link>
+          <ul>
+            <li><Link to="/yourTrips" id="yourTrips">Your Trips</Link></li>
+            <li><Link to="/createTrip" id="createTrip">Create a new trip</Link></li>
+            <li><Link to="/" onClick={this.signOut}>Sign Out</Link></li>
+          </ul>
         </div>
       );
     }
@@ -52,14 +60,14 @@ class Main extends Component {
       <div>
         <div id="main-nav">
           <h1>This is our main component</h1>
-          <ul>
+          <ul id="home-link">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/yourTrips">Your Trips</Link></li>
-            <li><Link to="/createTrip">Create a new trip</Link></li>
+          </ul>
+          <div id="main-loggedin">
             {
               this.loggedInLinks()
             }
-          </ul>
+          </div>
         </div>
         <div id="main-content">
           {this.props.children}
