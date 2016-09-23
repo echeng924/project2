@@ -31,6 +31,7 @@ class Login extends Component {
             .then(() => {
               this.props.router.push('/createTrip');
             })
+            console.log(firebase.auth().currentUser);
   }
 
   render() {

@@ -19,3 +19,14 @@ ul {
 #home-link {
   margin:0;
 }
+
+#trip-form {
+  border: 5px solid black;
+  padding: 10px;
+  width: 30%;
+}
+
+#trip-list {
+  width: 30%;
+  border: 5px solid black;
+}
