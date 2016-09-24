@@ -23,5 +23,5 @@ const Routes = () => {
 
 export default Routes;
 
-
+//add :uid as route params for login and register
 //under main are all of it's children
