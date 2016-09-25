@@ -10,43 +10,38 @@ class CreateTrip extends Component {
     super();
     this.state = {
       user: '',
-      data: [],
+      tripName:'',
     }
-    this.httpGetRequest = this.httpGetRequest.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.newNameSubmit = this.newNameSubmit.bind(this);
   }
-
-
-
-  httpGetRequest() {
-    console.log('user:');
-    console.log(this.state.user);
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips.json`;
-    request.get(baseUrl)
-           .then((response) => {
-            console.log(response);
-            const tripData = response.body;
-            console.log(this.state.user);
-            let tripItems = [];
-            if(tripData) {
-              tripItems = Object.keys(tripData).map((key) => {
-                const indvTrip = tripData[key];
-                console.log(indvTrip);
-                return {
-                  Place1: indvTrip.Place1,
-                  Place2: indvTrip.Place2,
-                  Place3: indvTrip.Place3,
-                }
-              })
-            }
-            console.log(tripData);
-            console.log(tripItems);
-           })
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setState({
+        user: user.uid,
+      });
+    })
+  }
+  handleEdit(e) {
+    const stateObj = {};
+    const stateKey = e.target.name;
+    stateObj[stateKey] = e.target.value;
+    this.setState(stateObj);
   }
   handleSubmit(e) {
     e.preventDefault();
     console.log('name submitted');
     this.props.router.push('/editTrip');
+    this.newNameSubmit();
+  }
+  newNameSubmit() {
+    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips.json`;
+    request.patch(baseUrl)
+           .send({ [this.state.tripName]: 0 })
+           .then(() => {
+              this.props.router.push('/editTrip');
+           })
   }
   render() {
     return(
@@ -55,9 +50,9 @@ class CreateTrip extends Component {
           this is the create trip component
         </h1>
         <div>
-          <form name="tripName-input" onSubmit={this.handleSubmit}>
+          <form name="tripNameForm" onSubmit={this.handleSubmit}>
             Enter a trip name:
-            <input name="trip-name" type="text" />
+            <input name="tripName" type="text" onChange={this.handleEdit}/>
             <input type="submit" name="name-submit" value="Submit!" />
           </form>
         </div>
