@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 import firebase from '../../firebase.config.js';
 
 
-class ExistingTrips extends Component {
+class ExistingTripsList extends Component {
   constructor() {
     super();
     this.state = {
@@ -56,14 +56,15 @@ class ExistingTrips extends Component {
               console.log(trips)
 
             }
-            this.setState({ trips: trips, });
+            this.setState({
+              trips: trips,
+            });
             console.log(`state ${this.state.trips}`);
            });
   }
-  handleTripDelete(tripName) {
+  handleTripDelete() {
     console.log('trip deleted');
-    console.log(tripName);
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${tripName}.json`;
+    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${this.state.trips.key}.json`;
     console.log(baseUrl);
     request.del(baseUrl)
            .then(() => {
@@ -83,7 +84,7 @@ class ExistingTrips extends Component {
             }
           </div>
           </Link>
-          <button onClick={() => this.handleTripDelete(tripName)}>Delete</button>
+          <button onClick={this.handleTripDelete}>Delete</button>
         </div>
       )
        console.log(tripElements);
@@ -101,4 +102,4 @@ class ExistingTrips extends Component {
   }
 }
 
-export default ExistingTrips;
+export default ExistingTripsList;

@@ -29,7 +29,7 @@ class Login extends Component {
               console.log(err)
             })
             .then(() => {
-              this.props.router.push('/createTrip');
+              this.props.router.push('/yourTrips');
             })
             console.log(firebase.auth().currentUser);
   }

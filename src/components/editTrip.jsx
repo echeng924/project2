@@ -44,6 +44,7 @@ class CreateTrip extends Component {
                 let indvTrip = tripData[key];
                 console.log(indvTrip);
                 return {
+                  id:key,
                   city: indvTrip.City,
                   details: indvTrip.Details
                 }
@@ -62,7 +63,12 @@ class CreateTrip extends Component {
         </h1>
         <div>
           <TripInputForm />
-          <TripList data={this.state.data} httpGetRequest={this.httpGetRequest} />
+          <TripList
+            tripName={this.props.params.tripName}
+            user={this.state.user}
+            data={this.state.data}
+            httpGetRequest={this.httpGetRequest}
+          />
         </div>
       </div>
     );
