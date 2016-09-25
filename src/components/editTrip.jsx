@@ -1,9 +1,10 @@
 //this component will be main App which will hold trip input form and trip list
 
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
 import request from 'superagent';
 import firebase from '../../firebase.config.js';
+import TripInputForm from './tripInputForm.jsx';
+import TripList from './tripList.jsx';
 
 class CreateTrip extends Component {
   constructor() {
@@ -13,11 +14,17 @@ class CreateTrip extends Component {
       data: [],
     }
     this.httpGetRequest = this.httpGetRequest.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-
-
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setState({
+        user: user.uid,
+      });
+      console.log(`${user.uid} uid`);
+      console.log(`${this.state.user} state`);
+      this.httpGetRequest();
+    });
+  }
   httpGetRequest() {
     console.log('user:');
     console.log(this.state.user);
@@ -43,11 +50,6 @@ class CreateTrip extends Component {
             console.log(tripItems);
            })
   }
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log('name submitted');
-    this.props.router.push('/editTrip');
-  }
   render() {
     return(
       <div>
@@ -55,15 +57,12 @@ class CreateTrip extends Component {
           this is the create trip component
         </h1>
         <div>
-          <form name="tripName-input" onSubmit={this.handleSubmit}>
-            Enter a trip name:
-            <input name="trip-name" type="text" />
-            <input type="submit" name="name-submit" value="Submit!" />
-          </form>
+          <TripInputForm />
+          <TripList />
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(CreateTrip);
+export default CreateTrip;

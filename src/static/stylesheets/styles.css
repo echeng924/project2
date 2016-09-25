@@ -30,3 +30,13 @@ ul {
   width: 30%;
   border: 5px solid black;
 }
+
+.existing-trip {
+  width: 20%;
+  border: 5px solid black;
+}
+
+#existing-newTrip {
+  width: 20%;
+  border: 5px solid black;
+}

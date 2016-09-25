@@ -14,15 +14,8 @@ class TripInputForm extends Component {
   render() {
     return (
       <div>
-        <h2>Will be a form</h2>
+        <h2>Displays trip name above form</h2>
         <form id="trip-form">
-          <div>
-            Trip Name:
-            <input
-              name="trip-name"
-              type="text"
-            />
-          </div>
           <div>
             Destination:
             <input
