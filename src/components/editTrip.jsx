@@ -6,6 +6,7 @@ import firebase from '../../firebase.config.js';
 import TripInputForm from './tripInputForm.jsx';
 import TripList from './tripList.jsx';
 
+
 class CreateTrip extends Component {
   constructor() {
     super();
@@ -22,13 +23,14 @@ class CreateTrip extends Component {
       });
       console.log(`${user.uid} uid`);
       console.log(`${this.state.user} state`);
+      console.log(this.props.params.tripName);
       this.httpGetRequest();
     });
   }
   httpGetRequest() {
     console.log('user:');
     console.log(this.state.user);
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips.json`;
+    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${this.props.params.tripName}.json`;
     request.get(baseUrl)
            .then((response) => {
             console.log(response);
@@ -37,17 +39,19 @@ class CreateTrip extends Component {
             let tripItems = [];
             if(tripData) {
               tripItems = Object.keys(tripData).map((key) => {
-                const indvTrip = tripData[key];
+                console.log(tripData);
+                console.log(key);
+                let indvTrip = tripData[key];
                 console.log(indvTrip);
                 return {
-                  Place1: indvTrip.Place1,
-                  Place2: indvTrip.Place2,
-                  Place3: indvTrip.Place3,
+                  city: indvTrip.City,
+                  details: indvTrip.Details
                 }
               })
             }
             console.log(tripData);
             console.log(tripItems);
+            this.setState({ data: tripItems })
            })
   }
   render() {
@@ -58,7 +62,7 @@ class CreateTrip extends Component {
         </h1>
         <div>
           <TripInputForm />
-          <TripList />
+          <TripList data={this.state.data} httpGetRequest={this.httpGetRequest} />
         </div>
       </div>
     );

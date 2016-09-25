@@ -64,11 +64,13 @@ class ExistingTrips extends Component {
     const tripElements = this.state.trips.map((item, id) => {
       console.log('tripElements', item);
       return (
+        <Link to={`/editTrip/${item}`}>
         <div key={id} className="existing-trip">
           {
             item
           }
         </div>
+        </Link>
       )
        console.log(tripElements);
     })

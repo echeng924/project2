@@ -15,7 +15,7 @@ const Routes = () => {
         <IndexRoute component={Home} />
         <Route path="yourTrips" component={ExistingTrips} />
         <Route path="createTrip" component={CreateTrip} />
-        <Route path="editTrip" component={EditTrip} />
+        <Route path="editTrip/:tripName" component={EditTrip} />
         <Route path="login" component={Login} />
         <Route path="register" component={Register} />
       </Route>
