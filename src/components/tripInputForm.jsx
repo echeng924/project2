@@ -45,7 +45,7 @@ class TripInputForm extends Component {
     this.setState({
       city:'',
       details: '',
-    })
+    });
   }
   render() {
     return (
@@ -57,6 +57,7 @@ class TripInputForm extends Component {
             <input
               name="city"
               type="text"
+              value={this.state.city}
               placeholder="City, State"
               onChange={this.handleInputUpdate}
             />
@@ -66,6 +67,7 @@ class TripInputForm extends Component {
             <textarea
               name="details"
               type="text"
+              value={this.state.details}
               placeholder="Specific places to visit"
               onChange={this.handleInputUpdate}
             />

@@ -15,7 +15,7 @@ class TripList extends Component {
     const tripElements = this.props.data.map((el, id) => {
       console.log(el.id);
       return (
-        <div id="trip-list">
+        <div key={id} id="trip-list">
           <TripItem
             id = {el.id}
             place = {el.city}

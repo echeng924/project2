@@ -75,9 +75,9 @@ class ExistingTrips extends Component {
     const tripElements = this.state.trips.map((tripName, id) => {
       console.log('tripElements', tripName);
       return (
-        <div>
+        <div key={id} id="group">
           <Link to={`/editTrip/${tripName}`}>
-          <div key={id} className="existing-trip">
+          <div className="existing-trip">
             {
               tripName
             }

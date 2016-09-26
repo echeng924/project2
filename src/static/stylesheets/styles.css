@@ -13,7 +13,7 @@ body {
 }
 
 #main-nav {
-  background-color: #20B2AA;
+  background-color: #5F9EA0;
   margin:0;
   margin-top: 0;
 
@@ -22,6 +22,8 @@ body {
 a {
   text-decoration: none;
   color:white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
 }
 
 ul {
@@ -38,6 +40,10 @@ li {
 
 }
 
+textarea {
+  width:424px;
+  height: 75px;
+}
 
 #main-loggedin {
   margin:0;
@@ -147,17 +153,18 @@ input {
 }
 
 .existing-trip {
-  width: 15%;
+  width: 200px;
   height: 200px;
   margin: 1rem;
   border: 2.8px solid black;
   display: inline-block;
-  background-color: rgba(217,189,205,0.8)
+  background-color: rgba(217,189,205,0.8);
+  padding: 20px;
 
 }
 
 #existing-newTrip {
-  width: 15%;
+  width: 200px;
   height: 200px;
   margin: 1rem;
   border: 2.8px solid black;
@@ -177,4 +184,8 @@ form.tripNameForm input[name="tripName"] {
 #editTripContent {
   margin-left: 1rem;
   font-family: 'Quicksand', sans-serif;
+}
+
+#group {
+  display: inline-block;
 }
