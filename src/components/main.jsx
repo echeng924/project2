@@ -38,7 +38,7 @@ class Main extends Component {
             <li><Link to="/login" id="yourTrips">Your Trips</Link></li>
             <li><Link to="/login" id="createTrip">Create a new trip</Link></li>
             <li><Link to="/login" id="login">Login /</Link>
-            <Link to="/register" id="register">Register</Link></li>
+            <Link to="/register" id="register"> Register</Link></li>
         </div>
       );
     } else {
@@ -59,11 +59,11 @@ class Main extends Component {
           <ul id="home-link">
             <li><Link to="/">Home</Link></li>
 
-          <div id="main-loggedin">
+
             {
               this.loggedInLinks()
             }
-          </div>
+
           </ul>
         </div>
         <div id="main-content">

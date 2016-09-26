@@ -76,15 +76,14 @@ class ExistingTrips extends Component {
       console.log('tripElements', tripName);
       return (
         <div key={id} id="group">
-          <Link to={`/editTrip/${tripName}`}>
           <div className="existing-trip">
+            <Link to={`/editTrip/${tripName}`}>
             {
               tripName
             }
+            </Link>
             <button onClick={() => this.handleTripDelete(tripName)}>Delete</button>
           </div>
-          </Link>
-
         </div>
       )
        console.log(tripElements);
