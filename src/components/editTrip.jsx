@@ -54,6 +54,7 @@ class CreateTrip extends Component {
             this.setState({ data: tripItems })
            })
   }
+
   render() {
     return(
       <div id="editTripContent">
@@ -61,7 +62,11 @@ class CreateTrip extends Component {
           Edit your trip below:
         </h1>
         <div>
-          <TripInputForm />
+          <TripInputForm
+            tripName={this.props.params.tripName}
+            user={this.state.user}
+            httpGetRequest={this.httpGetRequest}
+          />
           <TripList
             tripName={this.props.params.tripName}
             user={this.state.user}
