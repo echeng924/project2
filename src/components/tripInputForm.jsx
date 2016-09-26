@@ -50,9 +50,8 @@ class TripInputForm extends Component {
   render() {
     return (
       <div>
-        <h2>Displays trip name above form</h2>
         <form id="trip-form" onSubmit={this.handleTripSubmit}>
-          <div>
+          <div id="destinationInput">
             Destination:
             <input
               name="city"
@@ -62,7 +61,7 @@ class TripInputForm extends Component {
               onChange={this.handleInputUpdate}
             />
           </div>
-          <div>
+          <div id="detailsInput">
             Where you want to go:
             <textarea
               name="details"

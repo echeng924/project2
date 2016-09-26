@@ -91,6 +91,7 @@ class ExistingTrips extends Component {
     })
     return (
       <div>
+        <h1 id="existingTripTitle">Select trip to update</h1>
         <div class="tripItemView">
           {tripElements}
         </div>

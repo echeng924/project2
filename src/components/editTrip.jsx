@@ -59,8 +59,11 @@ class CreateTrip extends Component {
     return(
       <div id="editTripContent">
         <h1>
-          Edit your trip below:
+          {this.props.params.tripName}
         </h1>
+        <h2>
+          Edit your trip below:
+        </h2>
         <div>
           <TripInputForm
             tripName={this.props.params.tripName}

@@ -53,7 +53,9 @@ class CreateTrip extends Component {
           <form name="tripNameForm" onSubmit={this.handleSubmit}>
             Trip name:
             <input name="tripName" type="text" onChange={this.handleEdit}/>
+            <div id="createBtn">
             <input type="submit" name="name-submit" value="Submit!" />
+            </div>
           </form>
         </div>
       </div>
