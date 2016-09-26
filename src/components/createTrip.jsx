@@ -32,7 +32,7 @@ class CreateTrip extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('name submitted');
-    this.props.router.push('/editTrip');
+    this.props.router.push(`/editTrip/${this.state.tripName}`);
     this.newNameSubmit();
   }
   newNameSubmit() {
@@ -40,18 +40,18 @@ class CreateTrip extends Component {
     request.patch(baseUrl)
            .send({ [this.state.tripName]: 0 })
            .then(() => {
-              this.props.router.push('/editTrip');
+              this.props.router.push(`/editTrip/${this.state.tripName}`);
            })
   }
   render() {
     return(
-      <div>
-        <h1>
-          this is the create trip component
+      <div className="createTripContent">
+        <h1 id="createTripTitle">
+          Enter a name to create a new trip:
         </h1>
         <div>
           <form name="tripNameForm" onSubmit={this.handleSubmit}>
-            Enter a trip name:
+            Trip name:
             <input name="tripName" type="text" onChange={this.handleEdit}/>
             <input type="submit" name="name-submit" value="Submit!" />
           </form>

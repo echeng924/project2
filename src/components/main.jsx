@@ -35,39 +35,36 @@ class Main extends Component {
     if(!this.state.loggedIn) {
       return (
         <div>
-          <ul>
             <li><Link to="/login" id="yourTrips">Your Trips</Link></li>
             <li><Link to="/login" id="createTrip">Create a new trip</Link></li>
             <li><Link to="/login" id="login">Login /</Link>
             <Link to="/register" id="register">Register</Link></li>
-          </ul>
         </div>
       );
     } else {
       return (
         <div id="sign-out">
-          <ul>
             <li><Link to="/yourTrips" id="yourTrips">Your Trips</Link></li>
             <li><Link to="/createTrip" id="createTrip">Create a new trip</Link></li>
             <li><Link to="/" onClick={this.signOut}>Sign Out</Link></li>
-          </ul>
         </div>
       );
     }
   }
   render() {
     return(
-      <div>
+      <div id="main">
         <div id="main-nav">
-          <h1>This is our main component</h1>
+          <h1 id="mainTitle">RoadTrips</h1>
           <ul id="home-link">
             <li><Link to="/">Home</Link></li>
-          </ul>
+
           <div id="main-loggedin">
             {
               this.loggedInLinks()
             }
           </div>
+          </ul>
         </div>
         <div id="main-content">
           {this.props.children}

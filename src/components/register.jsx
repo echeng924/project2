@@ -39,12 +39,14 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <h1>Register for an account</h1>
-        <div id="register-form">
-          <div>
+        <h1 id="registerTitle">Register for an account!</h1>
+        <div id="registerForm">
+          <div id="registerUsername">
+            Username:
             <input name="username" onChange={this.handleEdit} type="text" placeholder="username" />
           </div>
-          <div>
+          <div id="registerPassword">
+            Password:
             <input name="password" onChange={this.handleEdit} type="password" placeholder="password" />
           </div>
           <button className="registerBtn" onClick={this.handleSubmit}>Register</button>

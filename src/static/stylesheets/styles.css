@@ -1,23 +1,138 @@
+html {
+  padding: 0;
+}
 body {
-  background-color: lightblue;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+#mainTitle {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #main-nav {
-  background-color: yellow;
+  background-color: #20B2AA;
   margin:0;
   margin-top: 0;
+
+}
+
+a {
+  text-decoration: none;
+  color:white;
 }
 
 ul {
   display: inline-block;
+  list-style: none;
+
 }
+
+li {
+  float: left;
+  margin-left: 2rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+
+}
+
 
 #main-loggedin {
   margin:0;
 }
 
-#home-link {
-  margin:0;
+#mainTitle {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+input {
+  width: 60%;
+  font-size: 16px;
+}
+
+#homeTitle {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#homeBtn {
+  margin-top: 13rem;
+}
+
+#homeLink {
+  margin-left: 45%;
+  font-family: 'Quicksand', sans-serif;
+  background-color: grey;
+  padding: 1rem;
+  border-radius: 10%;
+  color: white;
+}
+
+#loginForm {
+  margin: 0 auto;
+  margin-top: 8rem;
+  font-family: 'Quicksand', sans-serif;
+  height: 300px;
+  width: 600px;
+  border: 0.5px solid black;
+  background-color: rgba(157,199,175,0.7);
+}
+
+#loginTitle {
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 1rem;
+}
+
+#usernameInput {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 5rem;
+}
+
+#passwordInput {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 1rem;
+}
+
+#loginBtn {
+  margin-top: 1rem;
+  margin-left: 21rem;
+}
+
+#registerTitle {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#registerForm {
+  margin: 0 auto;
+  margin-top: 8rem;
+  font-family: 'Quicksand', sans-serif;
+  height: 300px;
+  width: 600px;
+  border: 0.5px solid black;
+  background-color: rgba(157,199,175,0.7);
+}
+
+#registerUsername {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 5rem;
+}
+
+#registerPassword {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 1rem;
+}
+
+.registerBtn {
+  margin-top: 1rem;
+  margin-left: 21rem;
 }
 
 #trip-form {
@@ -32,11 +147,34 @@ ul {
 }
 
 .existing-trip {
-  width: 20%;
-  border: 5px solid black;
+  width: 15%;
+  height: 200px;
+  margin: 1rem;
+  border: 2.8px solid black;
+  display: inline-block;
+  background-color: rgba(217,189,205,0.8)
+
 }
 
 #existing-newTrip {
-  width: 20%;
-  border: 5px solid black;
+  width: 15%;
+  height: 200px;
+  margin: 1rem;
+  border: 2.8px solid black;
+  display: inline-block;
+  background-color: rgba(217,189,205,0.8)
+}
+
+.createTripContent {
+  margin-left: 1.5rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+form.tripNameForm input[name="tripName"] {
+  width: 5rem;
+}
+
+#editTripContent {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
 }

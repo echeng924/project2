@@ -81,16 +81,17 @@ class ExistingTrips extends Component {
             {
               tripName
             }
+            <button onClick={() => this.handleTripDelete(tripName)}>Delete</button>
           </div>
           </Link>
-          <button onClick={() => this.handleTripDelete(tripName)}>Delete</button>
+
         </div>
       )
        console.log(tripElements);
     })
     return (
       <div>
-        <div>
+        <div class="tripItemView">
           {tripElements}
         </div>
         <div id="existing-newTrip">

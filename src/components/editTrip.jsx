@@ -51,15 +51,14 @@ class CreateTrip extends Component {
               })
             }
             console.log(tripData);
-            console.log(tripItems);
             this.setState({ data: tripItems })
            })
   }
   render() {
     return(
-      <div>
+      <div id="editTripContent">
         <h1>
-          this is the create trip component
+          Edit your trip below:
         </h1>
         <div>
           <TripInputForm />

@@ -37,12 +37,14 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Login component</h1>
-        <div id="login-form">
-          <div id="username-input">
+        <h1 id="loginTitle">Login to see your trips:</h1>
+        <div id="loginForm">
+          <div id="usernameInput">
+            Username:
             <input name="username" onChange={this.handleEdit} type="text" placeholder="username" />
           </div>
-          <div id="password-input">
+          <div id="passwordInput">
+            Password:
             <input name="password" onChange={this.handleEdit} type="password" placeholder="password" />
           </div>
           <button id="loginBtn" onClick={this.handleSubmit}>Login</button>
