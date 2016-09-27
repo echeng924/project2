@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import request from 'superagent';
+import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
 import firebase from '../../firebase.config.js';
 import TripInputForm from './tripInputForm.jsx';
 import TripList from './tripList.jsx';
@@ -13,7 +14,7 @@ class CreateTrip extends Component {
     this.state = {
       user: '',
       data: [],
-    }
+    };
     this.httpGetRequest = this.httpGetRequest.bind(this);
   }
   componentDidMount() {
@@ -30,7 +31,7 @@ class CreateTrip extends Component {
   httpGetRequest() {
     console.log('user:');
     console.log(this.state.user);
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${this.props.params.tripName}.json`;
+    const baseUrl = `https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${this.props.params.tripName}.json`;
     request.get(baseUrl)
            .then((response) => {
             console.log(response);
@@ -46,13 +47,13 @@ class CreateTrip extends Component {
                 return {
                   id:key,
                   city: indvTrip.City,
-                  details: indvTrip.Details
-                }
-              })
+                  details: indvTrip.Details,
+                };
+              });
             }
             console.log(tripData);
-            this.setState({ data: tripItems })
-           })
+            this.setState({ data: tripItems });
+           });
   }
 
   render() {
@@ -76,6 +77,18 @@ class CreateTrip extends Component {
             data={this.state.data}
             httpGetRequest={this.httpGetRequest}
           />
+        </div>
+        <div className="map">
+          <GoogleMap
+            containerProps={{
+              style: {
+                height: `100%`,
+              },
+            }}
+            defaultZoom={7}
+            defaultCenter={{ lat: -34.397, lng: 150.64 }}
+          >
+          </GoogleMap>
         </div>
       </div>
     );
