@@ -14,11 +14,11 @@ class TripInputForm extends Component {
   constructor() {
     super();
     this.state = {
-      city:'',
+      city: '',
       details: '',
       lat: '',
-      long:'',
-    }
+      long: '',
+    };
     this.handleInputUpdate = this.handleInputUpdate.bind(this);
     this.updateTrip = this.updateTrip.bind(this);
     this.handleTripSubmit = this.handleTripSubmit.bind(this);
@@ -32,7 +32,7 @@ class TripInputForm extends Component {
     this.setState(stateObj);
   }
   updateTrip() {
-  const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.props.user}/trips/${this.props.tripName}.json`;
+  const baseUrl = `https://roadtrip-app-1474472241721.firebaseio.com/users/${this.props.user}/trips/${this.props.tripName}.json`;
   request.post(baseUrl)
          .send({
           City: this.state.city,
@@ -42,14 +42,14 @@ class TripInputForm extends Component {
          })
          .then(() => {
             this.props.httpGetRequest();
-         })
+         });
   }
   handleTripSubmit(e) {
     console.log('new item submitted');
     e.preventDefault();
     this.updateTrip();
     this.setState({
-      city:'',
+      city: '',
       details: '',
     });
   }

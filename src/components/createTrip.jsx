@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import request from 'superagent';
-import { GoogleMap } from "react-google-maps";
+import { GoogleMap } from 'react-google-maps';
 import firebase from '../../firebase.config.js';
 
 class CreateTrip extends Component {
@@ -11,8 +11,8 @@ class CreateTrip extends Component {
     super();
     this.state = {
       user: '',
-      tripName:'',
-    }
+      tripName: '',
+    };
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.newNameSubmit = this.newNameSubmit.bind(this);
@@ -22,7 +22,7 @@ class CreateTrip extends Component {
       this.setState({
         user: user.uid,
       });
-    })
+    });
   }
   handleEdit(e) {
     const stateObj = {};
@@ -37,21 +37,21 @@ class CreateTrip extends Component {
     this.newNameSubmit();
   }
   newNameSubmit() {
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips.json`;
+    const baseUrl = `https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips.json`;
     request.patch(baseUrl)
            .send({ [this.state.tripName]: 0 })
            .then(() => {
               this.props.router.push(`/editTrip/${this.state.tripName}`);
-           })
+           });
   }
   render() {
-    return(
+    return (
       <div>
         <div className="map">
           <GoogleMap
             containerProps={{
               style: {
-                height: `100%`,
+                height: '100%',
               },
             }}
             defaultZoom={2}
@@ -67,7 +67,7 @@ class CreateTrip extends Component {
             <form name="tripNameForm" onSubmit={this.handleSubmit}>
               Trip name:
               <div id="newTripInput">
-              <input name="tripName" type="text" onChange={this.handleEdit}/>
+              <input name="tripName" type="text" onChange={this.handleEdit} />
               </div>
               <div id="createBtn">
               <input type="submit" name="name-submit" value="Submit!" />

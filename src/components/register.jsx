@@ -30,11 +30,11 @@ class Register extends Component {
             .then((user) => {
               firebase.database().ref('users')
                       .child(user.uid)
-                      .set({full_name:'', email: username})
+                      .set({ full_name: '', email: username });
             })
             .then(() => {
               this.props.router.push('/createTrip');
-            })
+            });
   }
   render() {
     return (

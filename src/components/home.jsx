@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { GoogleMap } from "react-google-maps";
+import { GoogleMap } from 'react-google-maps';
 
 class Home extends Component {
   render() {
@@ -12,7 +12,7 @@ class Home extends Component {
               <GoogleMap
                 containerProps={{
                   style: {
-                    height: `100%`,
+                    height: '100%',
                   },
                 }}
                 defaultZoom={2}

@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import { Link } from 'react-router';
-import { GoogleMap } from "react-google-maps";
+import { GoogleMap } from 'react-google-maps';
 import firebase from '../../firebase.config.js';
 
 
@@ -24,14 +24,14 @@ class ExistingTrips extends Component {
         user: user.uid,
       });
       this.httpGetRequest();
-    })
+    });
   }
   httpGetRequest() {
     const baseUrl = `https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/.json`;
     request.get(baseUrl)
            .then((response) => {
             const tripData = response.body;
-            console.log("tripdata", tripData);
+            console.log('tripdata', tripData);
             /*
             tripdata = {
                 "Trip1": {
@@ -44,32 +44,32 @@ class ExistingTrips extends Component {
             tripdata.Trip1
             tripdata["Trip1"]
             */
-            let trips = [];
-            if(tripData) {
-              trips = Object.keys(tripData).map((key) => {
-                console.log(key);
-                //tripData[key]... key = "Trip1", "Trip2", ...
-                const indvTrip = tripData[key];
-                console.log(indvTrip);
-                return key;
-                console.log(indvTrip.Place1);
-              })
-              console.log(trips)
+              let trips = [];
+              if(tripData) {
+                trips = Object.keys(tripData).map((key) => {
+                  console.log(key);
+                  //tripData[key]... key = "Trip1", "Trip2", ...
+                  const indvTrip = tripData[key];
+                  console.log(indvTrip);
+                  return key;
+                  console.log(indvTrip.Place1);
+                })
+                console.log(trips);
 
-            }
-            this.setState({ trips: trips, });
-            console.log(`state ${this.state.trips}`);
-           });
+              }
+              this.setState({ trips: trips, });
+              console.log(`state ${this.state.trips}`);
+            });
   }
   handleTripDelete(tripName) {
     console.log('trip deleted');
     console.log(tripName);
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${tripName}.json`;
+    const baseUrl = `https://roadtrip-app-1474472241721.firebaseio.com/users/${this.state.user}/trips/${tripName}.json`;
     console.log(baseUrl);
     request.del(baseUrl)
            .then(() => {
             this.httpGetRequest();
-           })
+           });
   }
   render() {
     console.log('render', this.state.trips);
@@ -86,26 +86,26 @@ class ExistingTrips extends Component {
             <button onClick={() => this.handleTripDelete(tripName)}>Delete</button>
           </div>
         </div>
-      )
+      );
        console.log(tripElements);
-    })
+    });
     return (
       <div>
         <div className="map">
-                <GoogleMap
-                  containerProps={{
-                    style: {
-                      height: `100%`,
-                    },
-                  }}
-                  defaultZoom={2}
-                  defaultCenter={{ lat: 40.71, lng: -74.01 }}
-                >
-                </GoogleMap>
-              </div>
+          <GoogleMap
+            containerProps={{
+              style: {
+                height: '100%',
+              },
+            }}
+            defaultZoom={2}
+            defaultCenter={{ lat: 40.71, lng: -74.01 }}
+          >
+          </GoogleMap>
+        </div>
         <div id="existingTripContent">
           <h1 id="existingTripTitle">Select trip to update</h1>
-          <div class="tripItemView">
+          <div className="tripItemView">
             {tripElements}
           </div>
           <div id="existing-newTrip">

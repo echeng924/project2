@@ -8,7 +8,7 @@ const propTypes = {
   user: React.PropTypes.string,
   tripName: React.PropTypes.string,
   httpGetRequest: React.PropTypes.func,
-}
+};
 
 class TripList extends Component {
   render() {
@@ -17,21 +17,21 @@ class TripList extends Component {
       return (
         <div key={id} id="trip-list">
           <TripItem
-            id = {el.id}
-            place = {el.city}
-            details = {el.details}
-            user= {this.props.user}
-            tripName = {this.props.tripName}
-            httpGetRequest = {this.props.httpGetRequest}
+            id={el.id}
+            place={el.city}
+            details={el.details}
+            user={this.props.user}
+            tripName={this.props.tripName}
+            httpGetRequest={this.props.httpGetRequest}
           />
         </div>
-      )
-    })
+      );
+    });
     return (
       <div>
         {tripElements}
       </div>
-    )
+    );
   }
 }
 

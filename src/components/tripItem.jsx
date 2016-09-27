@@ -8,7 +8,7 @@ const propTypes = {
   place: React.PropTypes.string,
   details: React.PropTypes.string,
   httpGetRequest: React.PropTypes.func,
-}
+};
 
 class TripItem extends Component {
   constructor(props) {
@@ -16,13 +16,13 @@ class TripItem extends Component {
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
   handleDeleteItem() {
-    const baseUrl=`https://roadtrip-app-1474472241721.firebaseio.com/users/${this.props.user}/trips/${this.props.tripName}/${this.props.id}.json`;
+    const baseUrl = `https://roadtrip-app-1474472241721.firebaseio.com/users/${this.props.user}/trips/${this.props.tripName}/${this.props.id}.json`;
     console.log(baseUrl);
     request.del(baseUrl)
            .then(() => {
             console.log('del clicked');
             this.props.httpGetRequest();
-           })
+           });
   }
 
   render() {

@@ -30,7 +30,7 @@ class Login extends Component {
             })
             .then(() => {
               this.props.router.push('/yourTrips');
-            })
+            });
             console.log(firebase.auth().currentUser);
   }
 
@@ -50,7 +50,7 @@ class Login extends Component {
           <button id="loginBtn" onClick={this.handleSubmit}>Login</button>
         </div>
       </div>
-    )
+    );
   }
 }
 

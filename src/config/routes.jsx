@@ -21,7 +21,7 @@ const Routes = () => {
       </Route>
     </Router>
   );
-}
+};
 
 export default Routes;
 

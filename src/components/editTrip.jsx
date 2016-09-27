@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import request from 'superagent';
-import {GoogleMapLoader, GoogleMap, Marker, SearchBox } from "react-google-maps";
+import { GoogleMapLoader, GoogleMap, Marker, SearchBox } from 'react-google-maps';
 import firebase from '../../firebase.config.js';
 import TripInputForm from './tripInputForm.jsx';
 import TripList from './tripList.jsx';
@@ -45,7 +45,7 @@ class CreateTrip extends Component {
                 let indvTrip = tripData[key];
                 console.log(indvTrip);
                 return {
-                  id:key,
+                  id: key,
                   city: indvTrip.City,
                   details: indvTrip.Details,
                   lat: indvTrip.Lat,
@@ -72,7 +72,7 @@ class CreateTrip extends Component {
               defaultCenter={{ lat: 39.4192, lng: -111.9506 }}
             >
               {
-                this.state.data.map((place, idx) =>{
+                this.state.data.map((place, idx) => {
                   console.log(place.long);
                   return (
                     <Marker
@@ -82,7 +82,7 @@ class CreateTrip extends Component {
                       }}
                     />
                   );
-              })
+                })
             }
             </GoogleMap>
           </div>
