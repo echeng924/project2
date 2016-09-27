@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import { Link } from 'react-router';
+import { GoogleMap } from "react-google-maps";
 import firebase from '../../firebase.config.js';
 
 
@@ -90,15 +91,29 @@ class ExistingTrips extends Component {
     })
     return (
       <div>
-        <h1 id="existingTripTitle">Select trip to update</h1>
-        <div class="tripItemView">
-          {tripElements}
-        </div>
-        <div id="existing-newTrip">
-          <Link to="/createTrip">Create a new trip</Link>
+        <div className="map">
+                <GoogleMap
+                  containerProps={{
+                    style: {
+                      height: `100%`,
+                    },
+                  }}
+                  defaultZoom={2}
+                  defaultCenter={{ lat: 40.71, lng: -74.01 }}
+                >
+                </GoogleMap>
+              </div>
+        <div id="existingTripContent">
+          <h1 id="existingTripTitle">Select trip to update</h1>
+          <div class="tripItemView">
+            {tripElements}
+          </div>
+          <div id="existing-newTrip">
+            <Link to="/createTrip">Create a new trip</Link>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import request from 'superagent';
+import { GoogleMap } from "react-google-maps";
 import firebase from '../../firebase.config.js';
 
 class CreateTrip extends Component {
@@ -45,18 +46,34 @@ class CreateTrip extends Component {
   }
   render() {
     return(
-      <div className="createTripContent">
-        <h1 id="createTripTitle">
-          Enter a name to create a new trip:
-        </h1>
-        <div>
-          <form name="tripNameForm" onSubmit={this.handleSubmit}>
-            Trip name:
-            <input name="tripName" type="text" onChange={this.handleEdit}/>
-            <div id="createBtn">
-            <input type="submit" name="name-submit" value="Submit!" />
-            </div>
-          </form>
+      <div>
+        <div className="map">
+          <GoogleMap
+            containerProps={{
+              style: {
+                height: `100%`,
+              },
+            }}
+            defaultZoom={2}
+            defaultCenter={{ lat: 40.71, lng: -74.01 }}
+          >
+          </GoogleMap>
+        </div>
+        <div className="createTripContent">
+          <h1 id="createTripTitle">
+            Enter a name to create a new trip:
+          </h1>
+          <div>
+            <form name="tripNameForm" onSubmit={this.handleSubmit}>
+              Trip name:
+              <div id="newTripInput">
+              <input name="tripName" type="text" onChange={this.handleEdit}/>
+              </div>
+              <div id="createBtn">
+              <input type="submit" name="name-submit" value="Submit!" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );

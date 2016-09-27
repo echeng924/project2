@@ -68,8 +68,8 @@ class CreateTrip extends Component {
                   height: `100%`,
                 },
               }}
-              defaultZoom={2}
-              defaultCenter={{ lat: 40.71, lng: -74.01 }}
+              defaultZoom={4}
+              defaultCenter={{ lat: 39.4192, lng: -111.9506 }}
             >
               {
                 this.state.data.map((place, idx) =>{

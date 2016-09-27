@@ -12,13 +12,16 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   display: inline-block;
+  vertical-align: middle;
 }
 
 #main-nav {
   background-color: #5F9EA0;
   margin:0;
   margin-top: 0;
-
+}
+#home-link {
+  vertical-align: middle;
 }
 
 a {
@@ -62,6 +65,11 @@ textarea {
 input {
   width: 60%;
   font-size: 14px;
+}
+
+#homeContent {
+  position: absolute;
+  width:100%;
 }
 
 #homeTitle {
@@ -176,11 +184,17 @@ input {
   color:grey;
   padding-left: 1rem;
   /*background-color: rgba(217,189,205,0.9);*/
+
 }
 
 #existingTripTitle {
- font-family: 'Quicksand', sans-serif;
- margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 1rem;
+}
+
+#existingTripContent {
+  position: absolute;
+  width:100%;
 }
 
 .existing-trip {
@@ -209,15 +223,21 @@ input {
 }
 
 .createTripContent {
+  position: absolute;
+  width: 100%;
   margin-left: 1.5rem;
   font-family: 'Quicksand', sans-serif;
+}
 
+#newTripInput input{
+  width: 450px;
+  height: 20px;
 }
 
 #createBtn {
   width: 12rem;
   padding: 1rem;
-  margin-left: 50rem;
+  margin-left: 20rem;
 }
 
 #tripName {
@@ -231,6 +251,8 @@ input {
   width: 35%;
   position: absolute;
   background-color: rgba(255,255,255,0.9);
+  overflow-y: scroll;
+  height: 78%;
 }
 
 #editTripContent h1 {
@@ -251,7 +273,7 @@ input {
 }
 
 .map {
-  height: 85%;
+  height: 90%;
   width:100%;
   position: absolute;
 }

@@ -34,20 +34,20 @@ class Main extends Component {
   loggedInLinks() {
     if(!this.state.loggedIn) {
       return (
-        <div>
+        <span>
             <li><Link to="/login" id="yourTrips">Your Trips</Link></li>
             <li><Link to="/login" id="createTrip">Create a new trip</Link></li>
             <li><Link to="/login" id="login">Login /</Link>
             <Link to="/register" id="register"> Register</Link></li>
-        </div>
+        </span>
       );
     } else {
       return (
-        <div id="sign-out">
+        <span id="sign-out">
             <li><Link to="/yourTrips" id="yourTrips">Your Trips</Link></li>
             <li><Link to="/createTrip" id="createTrip">Create a new trip</Link></li>
             <li><Link to="/" onClick={this.signOut}>Sign Out</Link></li>
-        </div>
+        </span>
       );
     }
   }
