@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import request from 'superagent';
+import Geosuggest from 'react-geosuggest';
 
 const propTypes = {
   tripName: React.PropTypes.string,
@@ -15,10 +16,13 @@ class TripInputForm extends Component {
     this.state = {
       city:'',
       details: '',
+      lat: '',
+      long:'',
     }
     this.handleInputUpdate = this.handleInputUpdate.bind(this);
     this.updateTrip = this.updateTrip.bind(this);
     this.handleTripSubmit = this.handleTripSubmit.bind(this);
+    this.onSuggestSelect = this.onSuggestSelect.bind(this);
     // this.props.httpGetRequest = this.props.httpGetRequest.bind(this);
   }
   handleInputUpdate(e) {
@@ -33,6 +37,8 @@ class TripInputForm extends Component {
          .send({
           City: this.state.city,
           Details: this.state.details,
+          Lat: this.state.lat,
+          Lng: this.state.long,
          })
          .then(() => {
             this.props.httpGetRequest();
@@ -47,18 +53,23 @@ class TripInputForm extends Component {
       details: '',
     });
   }
+  onSuggestSelect(suggest) {
+    console.log(suggest);
+    this.setState({
+      city: suggest.label,
+      lat: suggest.location.lat,
+      long: suggest.location.lng,
+    });
+  }
   render() {
     return (
       <div>
         <form id="trip-form" onSubmit={this.handleTripSubmit}>
           <div id="destinationInput">
-            Destination:
-            <input
-              name="city"
-              type="text"
-              value={this.state.city}
-              placeholder="City, State"
-              onChange={this.handleInputUpdate}
+            <span className="destination">Destination:</span>
+            <Geosuggest
+              placeholder="Type a city"
+              onSuggestSelect={this.onSuggestSelect}
             />
           </div>
           <div id="detailsInput">

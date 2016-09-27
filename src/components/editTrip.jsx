@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import request from 'superagent';
-import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
+import {GoogleMapLoader, GoogleMap, Marker, SearchBox } from "react-google-maps";
 import firebase from '../../firebase.config.js';
 import TripInputForm from './tripInputForm.jsx';
 import TripList from './tripList.jsx';
@@ -48,6 +48,8 @@ class CreateTrip extends Component {
                   id:key,
                   city: indvTrip.City,
                   details: indvTrip.Details,
+                  lat: indvTrip.Lat,
+                  long: indvTrip.Lng,
                 };
               });
             }
@@ -58,37 +60,53 @@ class CreateTrip extends Component {
 
   render() {
     return(
-      <div id="editTripContent">
-        <h1>
-          {this.props.params.tripName}
-        </h1>
-        <h2>
-          Edit your trip below:
-        </h2>
-        <div>
-          <TripInputForm
-            tripName={this.props.params.tripName}
-            user={this.state.user}
-            httpGetRequest={this.httpGetRequest}
-          />
-          <TripList
-            tripName={this.props.params.tripName}
-            user={this.state.user}
-            data={this.state.data}
-            httpGetRequest={this.httpGetRequest}
-          />
-        </div>
+      <div>
         <div className="map">
-          <GoogleMap
-            containerProps={{
-              style: {
-                height: `100%`,
-              },
-            }}
-            defaultZoom={7}
-            defaultCenter={{ lat: -34.397, lng: 150.64 }}
-          >
-          </GoogleMap>
+            <GoogleMap
+              containerProps={{
+                style: {
+                  height: `100%`,
+                },
+              }}
+              defaultZoom={2}
+              defaultCenter={{ lat: 40.71, lng: -74.01 }}
+            >
+              {
+                this.state.data.map((place, idx) =>{
+                  console.log(place.long);
+                  return (
+                    <Marker
+                      position={{
+                        lat: place.lat,
+                        lng: place.long,
+                      }}
+                    />
+                  );
+              })
+            }
+            </GoogleMap>
+          </div>
+        <div id="editTripContent">
+          <h1>
+            {this.props.params.tripName}
+          </h1>
+          <h2>
+            Edit your trip below:
+          </h2>
+          <div>
+
+            <TripInputForm
+              tripName={this.props.params.tripName}
+              user={this.state.user}
+              httpGetRequest={this.httpGetRequest}
+            />
+            <TripList
+              tripName={this.props.params.tripName}
+              user={this.state.user}
+              data={this.state.data}
+              httpGetRequest={this.httpGetRequest}
+            />
+          </div>
         </div>
       </div>
     );
