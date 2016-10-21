@@ -1,0 +1,285 @@
+html {
+  padding: 0;
+}
+body {
+  background-color: white;
+  /*background-image: url('background.jpg');*/
+  margin: 0;
+  padding: 0;
+}
+
+#mainTitle {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#main-nav {
+  background-color: #5F9EA0;
+  margin:0;
+  margin-top: 0;
+}
+#home-link {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  display: inline-block;
+}
+
+ul {
+  display: inline-block;
+  list-style: none;
+
+}
+
+li {
+  float: left;
+  margin-left: 2rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  display: inline-block;
+
+}
+
+textarea {
+  width:400px;
+  height: 75px;
+  font-size: 16px;
+}
+
+#main-loggedin {
+  margin:0;
+}
+
+#mainTitle {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+input {
+  width: 60%;
+  font-size: 14px;
+}
+
+#homeContent {
+  position: absolute;
+  width:100%;
+}
+
+#homeTitle {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#homeBtn {
+  margin-top: 13rem;
+}
+
+#homeLink {
+  margin-left: 40%;
+  font-family: 'Quicksand', sans-serif;
+  background-color: grey;
+  padding: 1rem;
+  border-radius: 25px;
+  color: white;
+}
+
+#loginForm {
+  margin: 0 auto;
+  margin-top: 8rem;
+  font-family: 'Quicksand', sans-serif;
+  height: 300px;
+  width: 600px;
+  border: 0.5px solid black;
+  background-color: rgba(157,199,175,0.7);
+  border-radius: 20px;
+}
+
+#loginTitle {
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 1rem;
+}
+
+#usernameInput {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 5rem;
+}
+
+#passwordInput {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 1rem;
+}
+
+#loginBtn {
+  margin-top: 1rem;
+  margin-left: 21rem;
+}
+
+#registerTitle {
+  margin-left: 1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#registerForm {
+  margin: 0 auto;
+  margin-top: 8rem;
+  font-family: 'Quicksand', sans-serif;
+  height: 300px;
+  width: 600px;
+  border: 0.5px solid black;
+  background-color: rgba(157,199,175,0.7);
+  border-radius: 20px;
+}
+
+#registerUsername {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 5rem;
+}
+
+#registerPassword {
+  font-size: 20px;
+  margin-left: 10rem;
+  margin-top: 1rem;
+}
+
+.registerBtn {
+  margin-top: 1rem;
+  margin-left: 21rem;
+}
+
+#trip-form {
+  margin-left: 1rem;
+  font-size: 18px;
+  padding:0;
+  border-bottom: 1px dashed orange;
+}
+
+#destinationInput {
+  padding: 1rem;
+  font-size: 17px;
+
+}
+
+#detailsInput {
+  padding: 1rem;
+  padding-top: 0;
+  font-size: 17px;
+
+}
+
+.destination {
+  padding-right: 1rem;
+}
+
+#trip-list {
+  color:grey;
+  padding-left: 1rem;
+  /*background-color: rgba(217,189,205,0.9);*/
+
+}
+
+#existingTripTitle {
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 1rem;
+}
+
+#existingTripContent {
+  position: absolute;
+  width:100%;
+}
+
+.existing-trip {
+  width: 200px;
+  height: 200px;
+  margin: 1rem;
+  border: 2.8px solid black;
+  display: inline-block;
+  background-color: rgba(217,189,205,0.9);
+  padding: 20px;
+
+}
+
+#trip-item h3{
+  /*margin: 1;*/
+}
+
+#existing-newTrip {
+  width: 200px;
+  height: 200px;
+  margin: 1rem;
+  border: 2.8px solid black;
+  display: inline-block;
+  background-color: rgba(217,189,205,0.9);
+  padding: 20px;
+}
+
+.createTripContent {
+  position: absolute;
+  width: 100%;
+  margin-left: 1.5rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#newTripInput input{
+  width: 450px;
+  height: 20px;
+}
+
+#createBtn {
+  width: 12rem;
+  padding: 1rem;
+  margin-left: 20rem;
+}
+
+#tripName {
+  width: 3rem;
+}
+
+#editTripContent {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  font-family: 'Quicksand', sans-serif;
+  width: 35%;
+  position: absolute;
+  background-color: rgba(255,255,255,0.9);
+  overflow-y: scroll;
+  height: 78%;
+}
+
+#editTripContent h1 {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed orange;
+  font-size: 25px;
+}
+
+#editTripContent h2 {
+  padding-left: 1rem;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+#group {
+  display: inline-block;
+}
+
+.map {
+  height: 90%;
+  width:100%;
+  position: absolute;
+}
+
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0;
+}
