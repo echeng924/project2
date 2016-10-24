@@ -6,8 +6,8 @@ CRUD App - Allows users to log in and create itineraries for road trips.  Users 
 ##Technologies
 React, Firebase, HTML, CSS, React Google Maps, React Geosuggest
 
-##Next Steps
-Today: come up with layout for app which will be a starting point for psuedo coding what React components to build.
+![](RoadTripsHome.png)
+![](CreateTrips.png)
 
 Tomorrow: Start writing code.
 
