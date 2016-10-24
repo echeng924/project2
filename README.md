@@ -14,3 +14,7 @@ Tomorrow: Start writing code.
 ##Bonuses
 Eventually add ability to calculate total trip time using Google Map tools.
 Go back and refactor code.
+
+
+##Deployed Link:
+http://lizcheng.com/project2/src/static/
